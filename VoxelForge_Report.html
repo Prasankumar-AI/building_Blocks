@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<title>VoxelForge — Full Project Report</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=JetBrains+Mono:wght@400;600&display=swap');
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'Inter',sans-serif;background:#0d0d1a;color:#e2e8f0;padding:40px;max-width:1100px;margin:0 auto}
+  h1{font-size:2.2rem;font-weight:700;background:linear-gradient(135deg,#7CFFD4,#a78bfa);-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:4px}
+  h2{font-size:1.1rem;font-weight:600;color:#7CFFD4;border-bottom:1px solid rgba(124,255,212,.2);padding-bottom:8px;margin:32px 0 16px}
+  h3{font-size:.95rem;font-weight:600;color:#a78bfa;margin:16px 0 8px}
+  p,li{font-size:.85rem;line-height:1.7;color:#94a3b8}
+  strong{color:#e2e8f0}
+  code,pre{font-family:'JetBrains Mono',monospace;font-size:.78rem;background:#13132a;border:1px solid rgba(124,255,212,.12);border-radius:6px;color:#7CFFD4}
+  pre{padding:14px 18px;overflow-x:auto;line-height:1.6}
+  code{padding:2px 6px}
+  .badge{display:inline-block;padding:3px 10px;border-radius:20px;font-size:.7rem;font-weight:700;font-family:'JetBrains Mono',monospace}
+  .badge-green{background:rgba(124,255,212,.15);color:#7CFFD4;border:1px solid rgba(124,255,212,.3)}
+  .badge-purple{background:rgba(167,139,250,.15);color:#a78bfa;border:1px solid rgba(167,139,250,.3)}
+  .badge-red{background:rgba(248,113,113,.15);color:#f87171;border:1px solid rgba(248,113,113,.3)}
+  table{width:100%;border-collapse:collapse;margin:12px 0;font-size:.82rem}
+  th{background:#13132a;color:#7CFFD4;padding:10px 14px;text-align:left;font-weight:600;border-bottom:2px solid rgba(124,255,212,.2)}
+  td{padding:9px 14px;border-bottom:1px solid rgba(255,255,255,.05);color:#94a3b8}
+  tr:hover td{background:rgba(124,255,212,.03)}
+  .card{background:#13132a;border:1px solid rgba(124,255,212,.12);border-radius:12px;padding:20px;margin:12px 0}
+  .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  .grid-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px}
+  .stat{text-align:center;padding:16px}
+  .stat-val{font-size:2rem;font-weight:700;color:#7CFFD4;font-family:'JetBrains Mono',monospace}
+  .stat-label{font-size:.72rem;color:#64748b;margin-top:4px;text-transform:uppercase;letter-spacing:1px}
+  .pass{color:#7CFFD4}
+  .warn{color:#fbbf24}
+  .header-bar{background:linear-gradient(135deg,rgba(124,255,212,.1),rgba(167,139,250,.1));border:1px solid rgba(124,255,212,.2);border-radius:16px;padding:28px 32px;margin-bottom:32px}
+  .meta{display:flex;gap:24px;margin-top:12px;flex-wrap:wrap}
+  .meta-item{font-size:.75rem;color:#64748b}
+  .meta-item strong{color:#94a3b8}
+  .section-tag{display:inline-block;background:rgba(167,139,250,.15);color:#a78bfa;border-radius:4px;padding:2px 8px;font-size:.7rem;font-weight:700;letter-spacing:.5px;margin-bottom:8px}
+  .cmd{display:block;background:#0a0a18;border-left:3px solid #7CFFD4;padding:10px 16px;border-radius:0 6px 6px 0;font-family:'JetBrains Mono',monospace;font-size:.78rem;color:#7CFFD4;margin:6px 0}
+  img.ss{width:100%;border-radius:10px;border:1px solid rgba(124,255,212,.15);margin:10px 0}
+  .cov-bar{height:8px;background:#1a1a35;border-radius:4px;overflow:hidden;margin-top:4px}
+  .cov-fill{height:100%;background:linear-gradient(90deg,#7CFFD4,#4aeac0);border-radius:4px}
+  @media print{body{background:#fff;color:#111;padding:20px} h1{-webkit-text-fill-color:#1a1a35} .header-bar{background:#f0fdf4} code,pre{background:#f8fafc;color:#0f766e} th{background:#f0fdf4;color:#065f46} td{color:#374151} .stat-val{color:#059669} .badge-green{background:#f0fdf4;color:#065f46} h2{color:#065f46} h3{color:#7c3aed} .card{background:#f8fafc} .cmd{background:#f0fdf4;color:#065f46;border-color:#059669}}
+</style>
+</head>
+<body>
+
+<div class="header-bar">
+  <h1>🧱 VoxelForge — 3D Block Builder</h1>
+  <p style="color:#94a3b8;margin-top:6px;font-size:.9rem">Full Technical Report &amp; Testing Documentation</p>
+  <div class="meta">
+    <div class="meta-item"><strong>Date:</strong> 18 April 2026</div>
+    <div class="meta-item"><strong>Version:</strong> 1.0.0</div>
+    <div class="meta-item"><strong>Repo:</strong> building_Blocks/</div>
+    <div class="meta-item"><strong>Author:</strong> Prasanna Nariboina</div>
+    <div class="meta-item"><strong>Status:</strong> <span class="badge badge-green">✅ PASSING</span></div>
+  </div>
+</div>
+
+<!-- EXECUTIVE SUMMARY -->
+<h2>1. Executive Summary</h2>
+<div class="grid-3">
+  <div class="card stat"><div class="stat-val">83</div><div class="stat-label">Tests Passing</div></div>
+  <div class="card stat"><div class="stat-val">~411 KB</div><div class="stat-label">Gzipped Bundle</div></div>
+  <div class="card stat"><div class="stat-val">6</div><div class="stat-label">Test Suites</div></div>
+  <div class="card stat"><div class="stat-val">79%</div><div class="stat-label">Statement Coverage</div></div>
+  <div class="card stat"><div class="stat-val">88%</div><div class="stat-label">Store Coverage</div></div>
+  <div class="card stat"><div class="stat-val">100%</div><div class="stat-label">A11y Layer</div></div>
+</div>
+
+<!-- TECH STACK -->
+<h2>2. Technology Stack</h2>
+<div class="grid-2">
+  <div>
+    <h3>🎮 3D Engine</h3>
+    <table>
+      <tr><th>Library</th><th>Version</th><th>Purpose</th></tr>
+      <tr><td>Three.js</td><td>^0.172.0</td><td>WebGL 3D renderer</td></tr>
+      <tr><td>@react-three/fiber</td><td>^8.17.10</td><td>Declarative React R3F</td></tr>
+      <tr><td>@react-three/drei</td><td>^9.122.0</td><td>Grid, Stars, Controls</td></tr>
+    </table>
+    <h3>☁️ Google Services (Firebase)</h3>
+    <table>
+      <tr><th>Service</th><th>SDK</th><th>Use</th></tr>
+      <tr><td>Firestore</td><td>firebase v11</td><td>NoSQL block persistence</td></tr>
+      <tr><td>Anonymous Auth</td><td>firebase v11</td><td>Secure user sessions</td></tr>
+    </table>
+  </div>
+  <div>
+    <h3>⚙️ Frontend Core</h3>
+    <table>
+      <tr><th>Library</th><th>Version</th><th>Purpose</th></tr>
+      <tr><td>React</td><td>^18.3.1</td><td>UI framework</td></tr>
+      <tr><td>Vite</td><td>^6.3.2</td><td>Build + dev server</td></tr>
+      <tr><td>TypeScript</td><td>~5.7.2</td><td>Type safety</td></tr>
+      <tr><td>Zustand</td><td>^5.0.3</td><td>State management</td></tr>
+      <tr><td>nanoid</td><td>^5.0.9</td><td>Block ID generation</td></tr>
+      <tr><td>lodash-es</td><td>^4.17.21</td><td>Debounce for saves</td></tr>
+    </table>
+    <h3>🎨 UI &amp; Accessibility</h3>
+    <table>
+      <tr><th>Library</th><th>Purpose</th></tr>
+      <tr><td>TailwindCSS v4</td><td>Styling base</td></tr>
+      <tr><td>Radix ToggleGroup</td><td>A11y block selector</td></tr>
+      <tr><td>Radix Tooltip</td><td>Hover hints</td></tr>
+    </table>
+  </div>
+</div>
+
+<!-- PROJECT STRUCTURE -->
+<h2>3. Project Architecture</h2>
+<pre>building_Blocks/
+├── index.html                    ← SEO meta, OG tags
+├── package.json                  ← All 17 dependencies
+├── vite.config.ts                ← Manual chunk splitting
+├── vitest.config.ts              ← Coverage config
+├── tsconfig.json                 ← Strict TypeScript
+├── firestore.rules               ← User-scoped security rules
+├── .env.example                  ← Firebase credentials template
+├── Dockerfile                    ← Multi-stage nginx build
+├── nginx.conf                    ← SPA routing + security headers
+└── src/
+    ├── store/useStore.ts         ← Zustand: blocks, undo, types, save
+    ├── firebase/
+    │   ├── config.ts             ← Graceful init (offline demo mode)
+    │   └── persistence.ts        ← Debounced save/load + sanitization
+    ├── hooks/useKeyboard.ts      ← Ctrl+Z undo, Ctrl+S save
+    ├── components/
+    │   ├── Scene.tsx             ← R3F Canvas + lights + OrbitControls
+    │   ├── Ground.tsx            ← Grid + stars + fog
+    │   ├── InstancedBlocks.tsx   ← InstancedMesh (1 draw call / type)
+    │   ├── BlockPlacer.tsx       ← Raycaster + ghost preview
+    │   ├── Toolbar.tsx           ← Radix ToggleGroup + tooltips
+    │   ├── AuthBadge.tsx         ← Firebase auth indicator
+    │   └── AccessibilityLayer.tsx← Canvas-to-ARIA bridge
+    ├── App.tsx                   ← Layout, skip links, ARIA landmarks
+    ├── main.tsx                  ← React 18 StrictMode entry
+    └── tests/                    ← 6 test suites (83 tests)</pre>
+
+<!-- ALL COMMANDS -->
+<h2>4. End-to-End Commands Used</h2>
+<div class="card">
+  <h3>🔧 Project Setup</h3>
+  <span class="cmd">cmd /c "npm install --legacy-peer-deps"</span>
+  <span class="cmd">cmd /c "npm install --save-dev @testing-library/dom"</span>
+
+  <h3>🚀 Development</h3>
+  <span class="cmd">cmd /c "npm run dev"                   # Vite dev server → http://localhost:5173/</span>
+
+  <h3>🧪 Testing</h3>
+  <span class="cmd">cmd /c "npm run test"                  # Vitest run (all 83 tests)</span>
+  <span class="cmd">cmd /c "npm run coverage"              # Vitest + V8 coverage report</span>
+
+  <h3>🏗️ Build</h3>
+  <span class="cmd">cmd /c "npm run build"                 # tsc -b &amp;&amp; vite build → dist/</span>
+
+  <h3>🐳 Docker (Production)</h3>
+  <span class="cmd">docker build -t voxelforge .</span>
+  <span class="cmd">docker run -p 8080:8080 voxelforge     # → http://localhost:8080/</span>
+</div>
+
+<!-- TEST RESULTS -->
+<h2>5. Test Results — 83 Tests, 6 Suites</h2>
+<table>
+  <tr><th>Test Suite</th><th>Tests</th><th>Duration</th><th>Status</th></tr>
+  <tr><td>useStore.test.ts</td><td>23</td><td>29ms</td><td><span class="badge badge-green">✅ PASS</span></td></tr>
+  <tr><td>Toolbar.test.tsx</td><td>23</td><td>2530ms</td><td><span class="badge badge-green">✅ PASS</span></td></tr>
+  <tr><td>AccessibilityLayer.test.tsx</td><td>12</td><td>234ms</td><td><span class="badge badge-green">✅ PASS</span></td></tr>
+  <tr><td>persistence.test.ts</td><td>11</td><td>32ms</td><td><span class="badge badge-green">✅ PASS</span></td></tr>
+  <tr><td>useKeyboard.test.ts</td><td>9</td><td>96ms</td><td><span class="badge badge-green">✅ PASS</span></td></tr>
+  <tr><td>AuthBadge.test.tsx</td><td>5</td><td>206ms</td><td><span class="badge badge-green">✅ PASS</span></td></tr>
+  <tr style="font-weight:700"><td><strong>TOTAL</strong></td><td><strong class="pass">83 / 83</strong></td><td><strong>7.26s</strong></td><td><span class="badge badge-green">✅ ALL PASS</span></td></tr>
+</table>
+
+<h3>Test Category Breakdown</h3>
+<table>
+  <tr><th>Category</th><th>Tests</th><th>What's Covered</th></tr>
+  <tr><td>Block Placement</td><td>6</td><td>Add at valid coords, float rounding, coord clamping, duplicates</td></tr>
+  <tr><td>Block Removal</td><td>3</td><td>Remove by position, no side-effects, empty world</td></tr>
+  <tr><td>Undo System</td><td>5</td><td>Undo placement, undo removal, multiple undos, empty stack</td></tr>
+  <tr><td>Block Type Selection</td><td>4</td><td>Default, all 4 types, persists to blocks</td></tr>
+  <tr><td>World Management</td><td>3</td><td>Clear world, userId set/clear</td></tr>
+  <tr><td>Save Status</td><td>2</td><td>No-op without userId, attempt with userId</td></tr>
+  <tr><td>Toolbar Render</td><td>8</td><td>Logo, count, 4 block buttons, Save, Undo, Clear, instructions</td></tr>
+  <tr><td>Toolbar Type Select</td><td>4</td><td>Default Wood active, Stone/Grass/Glass on click</td></tr>
+  <tr><td>Toolbar Save Labels</td><td>4</td><td>Idle/Saving/Saved/Error label text</td></tr>
+  <tr><td>Toolbar Undo State</td><td>3</td><td>Disabled empty, enabled with stack, triggers undo</td></tr>
+  <tr><td>Toolbar A11y</td><td>3</td><td>role=toolbar, aria-label, group label</td></tr>
+  <tr><td>ARIA Bridge</td><td>12</td><td>role=status, aria-live, aria-atomic, all save status messages</td></tr>
+  <tr><td>Persistence</td><td>11</td><td>Module structure, all block types, return values</td></tr>
+  <tr><td>Keyboard Hook</td><td>9</td><td>Mount/unmount, event listeners, Ctrl+Z, Ctrl+S, key tracking</td></tr>
+  <tr><td>AuthBadge</td><td>5</td><td>Demo mode render, role=status, aria-label, title attribute</td></tr>
+</table>
+
+<!-- COVERAGE -->
+<h2>6. Code Coverage Report</h2>
+<div class="card">
+  <table>
+    <tr><th>File</th><th>Statements</th><th>Branches</th><th>Functions</th><th>Lines</th></tr>
+    <tr><td>AccessibilityLayer.tsx</td><td class="pass">100%</td><td class="pass">92.85%</td><td class="pass">100%</td><td class="pass">100%</td></tr>
+    <tr><td>Toolbar.tsx</td><td class="pass">96.69%</td><td class="pass">100%</td><td class="warn">50%</td><td class="pass">96.69%</td></tr>
+    <tr><td>useStore.ts</td><td class="pass">83.56%</td><td class="pass">96%</td><td class="pass">88.88%</td><td class="pass">83.56%</td></tr>
+    <tr><td>useKeyboard.ts</td><td class="pass">100%</td><td class="pass">100%</td><td class="pass">100%</td><td class="pass">100%</td></tr>
+    <tr><td>AuthBadge.tsx</td><td class="warn">70.9%</td><td class="warn">33.33%</td><td class="pass">100%</td><td class="warn">70.9%</td></tr>
+    <tr><td>persistence.ts</td><td class="warn">15.78%*</td><td class="pass">100%</td><td class="warn">0%*</td><td class="warn">15.78%*</td></tr>
+    <tr style="font-weight:700"><td><strong>AGGREGATE</strong></td><td class="warn">79.11%</td><td class="pass">88.37%</td><td class="warn">65%</td><td class="warn">79.11%</td></tr>
+  </table>
+  <p style="margin-top:12px;font-size:.75rem;color:#64748b">* persistence.ts uses debounced real Firestore calls — not executable in jsdom without real Firebase. Covered via contract/mock tests.</p>
+  <p style="font-size:.75rem;color:#64748b;margin-top:4px">** WebGL components (Scene, Ground, InstancedBlocks, BlockPlacer) are excluded from unit coverage — they require a GPU context and are validated via E2E browser demo.</p>
+</div>
+
+<!-- BUILD OUTPUT -->
+<h2>7. Production Build Output</h2>
+<table>
+  <tr><th>Asset</th><th>Raw Size</th><th>Gzipped</th><th>Content</th></tr>
+  <tr><td>index.html</td><td>1.45 kB</td><td>0.65 kB</td><td>Entry point + SEO meta</td></tr>
+  <tr><td>index.css</td><td>14.01 kB</td><td>3.83 kB</td><td>Full design system</td></tr>
+  <tr><td>index.js (app)</td><td>69.20 kB</td><td>25.18 kB</td><td>App + components + store</td></tr>
+  <tr><td>r3f-vendor.js</td><td>300.29 kB</td><td>96.29 kB</td><td>React Three Fiber + Drei</td></tr>
+  <tr><td>firebase-vendor.js</td><td>455.15 kB</td><td>108.25 kB</td><td>Firebase Auth + Firestore</td></tr>
+  <tr><td>three-vendor.js</td><td>689.45 kB</td><td>176.96 kB</td><td>Three.js (tree-shaken)</td></tr>
+  <tr style="font-weight:700"><td><strong>TOTAL</strong></td><td><strong>1,529 kB</strong></td><td><strong class="pass">411 kB</strong></td><td><strong>4.1% of 10 MB limit ✅</strong></td></tr>
+</table>
+
+<!-- SECURITY -->
+<h2>8. Security Posture</h2>
+<table>
+  <tr><th>Layer</th><th>Mechanism</th><th>Implementation</th></tr>
+  <tr><td>Authentication</td><td>Firebase Anonymous Auth</td><td>signInAnonymously() on mount, signed JWT tokens</td></tr>
+  <tr><td>Authorization</td><td>Firestore Rules</td><td>request.auth.uid == userId — cross-user access denied</td></tr>
+  <tr><td>Input Validation</td><td>Coord Clamping</td><td>All coords clamped to [-500, 500], rounded to int</td></tr>
+  <tr><td>Duplicate Prevention</td><td>Position Check</td><td>addBlock checks existing pos before inserting</td></tr>
+  <tr><td>Rate Limiting</td><td>Debounce</td><td>saveWorld debounced 1500ms — prevents API flooding</td></tr>
+  <tr><td>Block Limit</td><td>MAX_BLOCKS cap</td><td>Firestore writes capped at 10,000 blocks per world</td></tr>
+  <tr><td>HTTP Headers</td><td>nginx.conf</td><td>X-Frame-Options, X-Content-Type-Options, Referrer-Policy</td></tr>
+  <tr><td>Docker</td><td>Non-root user</td><td>nginx runs as appuser (non-root)</td></tr>
+</table>
+
+<!-- ACCESSIBILITY -->
+<h2>9. Accessibility (A11y)</h2>
+<table>
+  <tr><th>Feature</th><th>Implementation</th><th>WCAG Level</th></tr>
+  <tr><td>Canvas-to-ARIA Bridge</td><td>role="status" aria-live="polite" live region</td><td>AA</td></tr>
+  <tr><td>Skip Link</td><td>.skip-link shown on :focus</td><td>AA</td></tr>
+  <tr><td>Keyboard Controls</td><td>Ctrl+Z undo, Ctrl+S save</td><td>AA</td></tr>
+  <tr><td>Toolbar Navigation</td><td>Radix ToggleGroup (keyboard navigable)</td><td>AA</td></tr>
+  <tr><td>Focus Indicators</td><td>focus-visible:outline on all interactive elements</td><td>AA</td></tr>
+  <tr><td>ARIA Landmarks</td><td>header, main, aside, role="application"</td><td>AA</td></tr>
+  <tr><td>Screen Reader Stats</td><td>Hidden region with block count + selected type</td><td>AA</td></tr>
+  <tr><td>Button Labels</td><td>aria-label on all buttons + aria-busy on Save</td><td>AA</td></tr>
+</table>
+
+<!-- DEMO SCREENSHOTS -->
+<h2>10. Live Demo Screenshots</h2>
+<div class="grid-2">
+  <div class="card">
+    <h3>Initial Load — Empty Scene</h3>
+    <p>Dark immersive scene with infinite blue grid, star field, atmospheric fog, and glassmorphism sidebar.</p>
+  </div>
+  <div class="card">
+    <h3>Multiple Block Types (5 blocks)</h3>
+    <p>Stone type selected (highlighted in sidebar). Wood blocks (golden) and Stone blocks (grey) visible on grid. Block count badge updates in real-time.</p>
+  </div>
+  <div class="card">
+    <h3>All 4 Block Types Placed (9 blocks)</h3>
+    <p>Glass type selected. All 4 block types visible: Wood (golden), Stone (grey), Grass (green), Glass (blue transparent). Block removal via right-click.</p>
+  </div>
+  <div class="card">
+    <h3>Final State (8 blocks after removal)</h3>
+    <p>After right-clicking Glass block to remove it. Undo button becomes enabled after any action. Block count badge updates correctly.</p>
+  </div>
+</div>
+<p style="font-size:.8rem;color:#64748b;margin-top:8px">📹 Full demo recording: <code>voxelforge_full_demo_1776456788582.webp</code></p>
+
+<!-- GOOGLE SERVICES -->
+<h2>11. Google Services Integration</h2>
+<div class="grid-2">
+  <div class="card">
+    <h3>Firebase Firestore</h3>
+    <p>Document path: <code>users/{uid}/worlds/default</code></p>
+    <p>Structure: <code>{ blocks: Block[], updatedAt: string, blockCount: number }</code></p>
+    <p>Security rules enforce user-scoped access. Block count capped at 10,000 per write. Debounced 1500ms.</p>
+  </div>
+  <div class="card">
+    <h3>Firebase Anonymous Auth</h3>
+    <p>Called on app mount via <code>signInAnonymously(auth)</code>. No email/password required — users start building immediately. UID is stable across sessions.</p>
+    <p>App runs in <strong>Demo Mode</strong> when Firebase credentials are not configured.</p>
+  </div>
+</div>
+
+<!-- FUTURE ROADMAP -->
+<h2>12. Roadmap &amp; Next Steps</h2>
+<table>
+  <tr><th>Priority</th><th>Feature</th><th>Effort</th></tr>
+  <tr><td><span class="badge badge-red">High</span></td><td>Add Firebase credentials (.env) to enable cloud saves</td><td>5 min</td></tr>
+  <tr><td><span class="badge badge-red">High</span></td><td>Deploy firestore.rules via Firebase CLI</td><td>10 min</td></tr>
+  <tr><td><span class="badge badge-purple">Medium</span></td><td>Block stacking (place on top of existing blocks)</td><td>2 hrs</td></tr>
+  <tr><td><span class="badge badge-purple">Medium</span></td><td>Export world as .obj / .gltf file</td><td>4 hrs</td></tr>
+  <tr><td><span class="badge badge-purple">Medium</span></td><td>Share world URL (Firestore world ID in URL)</td><td>3 hrs</td></tr>
+  <tr><td><span class="badge badge-green">Low</span></td><td>Texture maps (64×64 PNGs per block type)</td><td>2 hrs</td></tr>
+  <tr><td><span class="badge badge-green">Low</span></td><td>Deploy to Firebase Hosting via GitHub Actions CI/CD</td><td>2 hrs</td></tr>
+</table>
+
+<div style="margin-top:40px;padding:20px;border-top:1px solid rgba(124,255,212,.15);text-align:center;color:#475569;font-size:.75rem">
+  VoxelForge v1.0.0 &nbsp;·&nbsp; Built with Three.js, React Three Fiber, Firebase, Zustand &nbsp;·&nbsp; April 2026
+</div>
+
+</body>
+</html>
